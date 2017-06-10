@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Android Endless Scroll
 
 This project is a EndlessScroll for using on RecyclerView
@@ -31,3 +32,6 @@ endless.addScrollEndless(new EndlessListener() {
         Toast.makeText(MainActivity.this, "Load all " + endless.getTotalPage(), Toast.LENGTH_SHORT).show();
 	}
 });
+=======
+# android_scroll_endless
+>>>>>>> 53156bf7a52caff4ff505c41e3de02fafa3a1feb
