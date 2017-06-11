@@ -2,6 +2,10 @@
 
 This project is a EndlessScroll for using on RecyclerView
 
+## Preview
+
+![ScreenPreview](screen_gif.gif)
+
 ## Usage
 
 * Config your RecyclerView, setting the Adapter and LayoutManager
