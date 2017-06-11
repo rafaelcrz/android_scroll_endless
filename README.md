@@ -2,6 +2,8 @@
 
 This project is a EndlessScroll for using on RecyclerView
 
+Execute the sample in app folder
+
 ## Preview
 
 *The ProgressDialog is optional.
