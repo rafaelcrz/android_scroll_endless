@@ -42,7 +42,9 @@ endless = new ScrollEndless(mContext, recyclerView, layoutManager);
 ```
 
 * Set the total page. Default is 1
-```java endless.setTotalPage(total); ```
+```java
+endless.setTotalPage(total);
+```
                 
 * This is importante. Make your requestCall before get the EndlessListener. For popule the adapter.
 ```java
