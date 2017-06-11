@@ -9,66 +9,49 @@ This project is a EndlessScroll for using on RecyclerView
 
 ## Usage
 
-* Config your RecyclerView, setting the Adapter and LayoutManager
+* Configure the RecyclerView with the Adapter and LayoutManager before use the ScrollEndeless
+```java
+recyclerView.setAdapter(adapter);
+recyclerView.setLayoutManager(layoutManager);
+```
+* Declare ScrollEndless like this
+```java
+endless = new ScrollEndless(mContext, recyclerView, layoutManager);
+```
+* This is importante. Make your requestCall before get the EndlessListener. For popule the adapter.
+```java
+yourRequestCall();
+```
+* Get the ScrollEndless listener. 
+``` java onLoadMore() ``` For call the next page when is available
+```java onLoadAllFinish() ``` All pages are load. Last page is called
 
 ```java
-
-int page = 1;
-
-//Your adapter
-adapter = new YourAdapter(this, new ArrayList<String>());
-recyclerView.setAdapter(adapter);
-
-//Create a new ScrollEndless. Set the a recyclerView and layoutManager
-endless = new ScrollEndless(this, recyclerView, layoutManager);
-
-//Before get the ScrollEndless, make your request
-makeCallSample();
-
-// Get the ScrollEndless listener
 endless.addScrollEndless(new EndlessListener() {
     @Override
     public void onLoadMore() {
-        //load more itens/pages
-        makeCallSample();
+        yourRequestMethod();
     }
 
     @Override
     public void onLoadAllFinish() {
         //Is the last page. Load all itens
-        Toast.makeText(MainActivity.this, "Load all " + endless.getTotalPage(), Toast.LENGTH_SHORT).show();
-	}
-});
-
-    //Simule a request call
-    private void makeCallSample() {
-        //Before the call setting the loading in True
-        endless.isLoading(true);
-        //Show progress dialog
-        endless.showProgressDialog("Loading data...", "Wating", false);
-        //Make the call
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //Add the items to Adapter
-                for (int i = 0; i < 20; i++) {
-                    adapter.addItem("Item: " + i + "; Page: " + page, adapter.getItemCount() - 1);
-                }
-                //CLose the ProgressDialog
-                endless.closeProgressDialog();
-                //Setting the Loading in false. The call is complete.
-                endless.isLoading(false);
-                //First set the next Page
-                endless.setPage(page);
-                //After increment the page
-                page = endless.getPage() + 1;
-            }
-        }, REQUEST_CALL_TIME);
     }
-//The ProgressDialog is optional
-For show it ->  
-showProgressDialog(Title:String, Mesage:String, Cancelable:boolean);
-For clse it ->
-endless.closeProgressDialog();
+});
+```
+* In your requestMetohd, is very important set the following methods.
+In your requestMethod, before 'response', use it: ```java endless.isLoading(true); ``` The ScrollEndless needs know when the request is executing.
+If you want, use it ```java endless.showProgressDialog("title, "message", cancelable: false); ``` for show a simple ProgressDialog, and for close it, use ```java endless.closeProgressDialog() ```
 
+In the onResponse or when the data item are complete in adapter, use 
+```java endless.isLoading(false); ``` After the response.
+If you want, use it ```java endless.closeProgressDialog(); ``` for close the dialog
+
+Set the next Page (before the increment)
+```java
+endless.setPage(page);
+```
+Increment the page
+```java
+page = endless.getPage() + 1;
 ```
