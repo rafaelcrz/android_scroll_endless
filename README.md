@@ -9,6 +9,26 @@ Execute the sample in app folder
 *The ProgressDialog is optional.
 ![Sample](screen_gif.gif)
 
+## Integrating into your project
+
+This project is available in [JitPack.io](https://jitpack.io/) repository.
+
+## Add into build.gradle
+```java
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+## Add into app/build.gradle
+```java
+dependencies {
+  compile 'com.github.rafaelcrz:android_scroll_endless:-SNAPSHOT'
+}
+```
+
 ## Usage
 
 * Configure the RecyclerView with the Adapter and LayoutManager before use the ScrollEndeless
