@@ -4,7 +4,8 @@ This project is a EndlessScroll for using on RecyclerView
 
 ## Preview
 
-![ScreenPreview](screen_gif.gif)
+*The ProgressDialog is optional.
+![Sample](screen_gif.gif)
 
 ## Usage
 
@@ -64,4 +65,10 @@ endless.addScrollEndless(new EndlessListener() {
             }
         }, REQUEST_CALL_TIME);
     }
+//The ProgressDialog is optional
+For show it ->  
+showProgressDialog(Title:String, Mesage:String, Cancelable:boolean);
+For clse it ->
+endless.closeProgressDialog();
+
 ```
