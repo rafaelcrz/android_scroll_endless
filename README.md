@@ -35,7 +35,8 @@ yourRequestCall();
 
 For call the next page when is available
 ``` java
-onLoadMore() ``` 
+onLoadMore()
+``` 
 
 All pages are load. Last page is called
 ```java onLoadAllFinish() ``` 
@@ -57,19 +58,28 @@ endless.addScrollEndless(new EndlessListener() {
 * In your requestMetohd, is very important set the following methods.
 In your requestMethod, before 'response', use it: 
 The ScrollEndless needs know when the request is executing.
-```java endless.isLoading(true); ``` 
+```java
+endless.isLoading(true);
+``` 
 
 If you want, use it for show a simple ProgressDialog
-```java endless.showProgressDialog("title, "message", cancelable: false); ``` 
+```java
+endless.showProgressDialog("title, "message", cancelable: false); 
+``` 
 For close it, use
-```java endless.closeProgressDialog() ```
+```java 
+endless.closeProgressDialog() 
+```
 
 In the onResponse or when the data item are complete in adapter
 ```java
-endless.isLoading(false); ```
+endless.isLoading(false); 
+```
 
 If you want, use it for close the ProgressDialog
-```java endless.closeProgressDialog(); ```
+```java 
+endless.closeProgressDialog(); 
+```
 
 Set the next Page (before the increment)
 ```java
