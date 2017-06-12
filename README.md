@@ -12,6 +12,26 @@ This project is a EndlessScroll for using on RecyclerView
 
 This project has a sample
 
+## Integrating into your project
+
+This project is available in [JitPack.io](https://jitpack.io/) repository.
+
+## Add into build.gradle
+```java
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+## Add into app/build.gradle
+```java
+dependencies {
+  compile 'com.github.rafaelcrz:android_scroll_endless:-SNAPSHOT'
+}
+```
+
 ## Usage
 
 * Configure the RecyclerView with the Adapter and LayoutManager before use the ScrollEndeless

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android_endless_scroll_app.iml" filepath="$PROJECT_DIR$/Android_endless_scroll_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android_endless_scroll_lib/android_endless_scroll_lib.iml" filepath="$PROJECT_DIR$/android_endless_scroll_lib/android_endless_scroll_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
