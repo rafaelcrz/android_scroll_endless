@@ -22,6 +22,7 @@ endless = new ScrollEndless(mContext, recyclerView, layoutManager);
 ```
 
 * Set the total page. Default is 1
+The total pages value you can get it from your response, setting in a global variable.
 ```java
 endless.setTotalPage(total);
 ```
@@ -31,8 +32,14 @@ endless.setTotalPage(total);
 yourRequestCall();
 ```
 * Get the ScrollEndless listener. 
-``` java onLoadMore() ``` For call the next page when is available
-```java onLoadAllFinish() ``` All pages are load. Last page is called
+
+For call the next page when is available
+``` java
+onLoadMore() ``` 
+
+All pages are load. Last page is called
+```java onLoadAllFinish() ``` 
+
 
 ```java
 endless.addScrollEndless(new EndlessListener() {
@@ -48,17 +55,27 @@ endless.addScrollEndless(new EndlessListener() {
 });
 ```
 * In your requestMetohd, is very important set the following methods.
-In your requestMethod, before 'response', use it: ```java endless.isLoading(true); ``` The ScrollEndless needs know when the request is executing.
-If you want, use it ```java endless.showProgressDialog("title, "message", cancelable: false); ``` for show a simple ProgressDialog, and for close it, use ```java endless.closeProgressDialog() ```
+In your requestMethod, before 'response', use it: 
+The ScrollEndless needs know when the request is executing.
+```java endless.isLoading(true); ``` 
 
-In the onResponse or when the data item are complete in adapter, use 
-```java endless.isLoading(false); ``` After the response.
-If you want, use it ```java endless.closeProgressDialog(); ``` for close the dialog
+If you want, use it for show a simple ProgressDialog
+```java endless.showProgressDialog("title, "message", cancelable: false); ``` 
+For close it, use
+```java endless.closeProgressDialog() ```
+
+In the onResponse or when the data item are complete in adapter
+```java
+endless.isLoading(false); ```
+
+If you want, use it for close the ProgressDialog
+```java endless.closeProgressDialog(); ```
 
 Set the next Page (before the increment)
 ```java
 endless.setPage(page);
 ```
+
 Increment the page
 ```java
 page = endless.getPage() + 1;
