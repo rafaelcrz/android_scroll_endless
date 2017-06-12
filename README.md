@@ -33,19 +33,11 @@ yourRequestCall();
 ```
 * Get the ScrollEndless listener. 
 
-For call the next page when is available
-``` java
-onLoadMore()
-``` 
-
-All pages are load. Last page is called
-```java onLoadAllFinish() ``` 
-
-
 ```java
 endless.addScrollEndless(new EndlessListener() {
     @Override
     public void onLoadMore() {
+        //Get the next page when is available
         yourRequestMethod();
     }
 
