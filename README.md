@@ -2,12 +2,15 @@
 
 This project is a EndlessScroll for using on RecyclerView
 
-Execute the sample in app folder
+
 
 ## Preview
 
-*The ProgressDialog is optional.
+*The ProgressDialog is optional
+
 ![Sample](screen_gif.gif)
+
+This project has a sample
 
 ## Usage
 
@@ -56,7 +59,7 @@ endless.isLoading(true);
 
 If you want, use it for show a simple ProgressDialog
 ```java
-endless.showProgressDialog("title, "message", cancelable: false); 
+endless.showProgressDialog("title", "message", cancelable: boolean); 
 ``` 
 For close it, use
 ```java 
