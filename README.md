@@ -28,7 +28,7 @@ allprojects {
 ## Add into app/build.gradle
 ```java
 dependencies {
-  compile 'com.github.rafaelcrz:android_scroll_endless:-SNAPSHOT'
+  compile 'com.github.rafaelcrz:android_scroll_endless:master-SNAPSHOT'
 }
 ```
 
