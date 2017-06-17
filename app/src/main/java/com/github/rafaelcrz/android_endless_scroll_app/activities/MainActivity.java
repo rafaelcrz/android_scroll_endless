@@ -2,6 +2,7 @@ package com.github.rafaelcrz.android_endless_scroll_app.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,13 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
 
 import com.github.rafaelcrz.android_endless_scroll_app.R;
 import com.github.rafaelcrz.android_endless_scroll_app.adapter.ListItensAdapter;
-import com.github.rafaelcrz.android_endless_scroll_lib.EndlessListener;
 import com.github.rafaelcrz.android_endless_scroll_lib.ScrollEndless;
 
 import java.util.ArrayList;
@@ -23,6 +22,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final long REQUEST_CALL_TIME = 2000;
+
+    private FloatingActionButton floatingActionButton;
     private EditText edTotalPages;
     private Button btOk;
     private RecyclerView recyclerView;
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final LinearLayout layout = (LinearLayout) findViewById(R.id.container);
+        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.container);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         edTotalPages = (EditText) findViewById(R.id.edPages);
         btOk = (Button) findViewById(R.id.btOk);
         btOk.setOnClickListener(this);
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         makeCallSample();
 
         // Get the ScrollEndless listener
-        endless.addScrollEndless(new EndlessListener() {
+        endless.addScrollEndless(new ScrollEndless.EndlessScrollListener() {
             @Override
             public void onLoadMore() {
                 //load more itens/pages
@@ -74,6 +76,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 snackbar.show();
             }
         });
+
+        //Recyclerview down/up
+        //Effect like Floataction in Android Facebook app (last version)
+        endless.addScrollManagerDirection(new ScrollEndless.ScrollManagerDirectionListener() {
+            @Override
+            public void onScrollUp() {
+                floatingActionButton.hide();
+                floatingActionButton.animate();
+            }
+
+            @Override
+            public void onScrollDown() {
+                floatingActionButton.show();
+                floatingActionButton.animate();
+            }
+        });
+
 
     }
 

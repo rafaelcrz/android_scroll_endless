@@ -42,9 +42,9 @@ public class ScrollEndless {
     /**
      * Call the scroll endless
      *
-     * @param endlessListener EndlessListener call the onloadMore and onLoadAllFinsih
+     * @param endlessScrollListener EndlessListener call the onloadMore and onLoadAllFinsih
      */
-    public void addScrollEndless(final EndlessListener endlessListener) {
+    public void addScrollEndless(final EndlessScrollListener endlessScrollListener) {
         this.recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -55,12 +55,26 @@ public class ScrollEndless {
                     if (!isLoading) {
                         if ((visibleItemCount + pastItemVisible) >= totalItemCount) {
                             if (nextPage < totalPage) {
-                                endlessListener.onLoadMore();
+                                endlessScrollListener.onLoadMore();
                             } else if (nextPage == totalPage) {
-                                endlessListener.onLoadAllFinish();
+                                endlessScrollListener.onLoadAllFinish();
                             }
                         }
                     }
+                }
+            }
+        });
+    }
+
+    public void addScrollManagerDirection(final ScrollManagerDirectionListener managerScrollListenerDirectionListener) {
+        this.recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0) {
+                    managerScrollListenerDirectionListener.onScrollUp();
+                } else {
+                    managerScrollListenerDirectionListener.onScrollDown();
                 }
             }
         });
@@ -119,6 +133,7 @@ public class ScrollEndless {
 
     /**
      * Get the page
+     *
      * @return page
      */
     public int getPage() {
@@ -127,9 +142,34 @@ public class ScrollEndless {
 
     /**
      * Get total page
+     *
      * @return total page - default is 1
      */
     public int getTotalPage() {
         return this.totalPage;
     }
+
+
+    /**
+     * Endless Scroll, for using with pagination
+     */
+    public interface EndlessScrollListener {
+
+        void onLoadMore(); //Load the next page
+
+        void onLoadAllFinish(); //Finish load data. All pages are loaded
+
+    }
+
+    /**
+     * Manager the Scroll Direction - up;down
+     */
+    public interface ScrollManagerDirectionListener {
+
+        void onScrollUp(); //do something when is to up
+
+        void onScrollDown(); //do something when is to down
+
+    }
+
 }
