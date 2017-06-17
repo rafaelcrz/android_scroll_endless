@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:name=".activities.MainActivity"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

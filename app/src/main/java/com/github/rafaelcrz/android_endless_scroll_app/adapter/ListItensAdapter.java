@@ -1,4 +1,4 @@
-package com.github.rafaelcrz.android_endless_scroll_app;
+package com.github.rafaelcrz.android_endless_scroll_app.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
+import com.github.rafaelcrz.android_endless_scroll_app.R;
 
 import java.util.List;
 

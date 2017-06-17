@@ -1,4 +1,4 @@
-package com.github.rafaelcrz.android_endless_scroll_app;
+package com.github.rafaelcrz.android_endless_scroll_app.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.github.rafaelcrz.android_endless_scroll_app.R;
+import com.github.rafaelcrz.android_endless_scroll_app.adapter.ListItensAdapter;
 import com.github.rafaelcrz.android_endless_scroll_lib.EndlessListener;
 import com.github.rafaelcrz.android_endless_scroll_lib.ScrollEndless;
 

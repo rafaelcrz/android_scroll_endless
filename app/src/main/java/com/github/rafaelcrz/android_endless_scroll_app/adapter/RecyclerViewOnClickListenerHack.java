@@ -1,4 +1,4 @@
-package com.github.rafaelcrz.android_endless_scroll_app;
+package com.github.rafaelcrz.android_endless_scroll_app.adapter;
 
 import android.view.View;
 
