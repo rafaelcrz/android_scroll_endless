@@ -2,12 +2,14 @@ package com.github.rafaelcrz.android_endless_scroll_app.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ListItensAdapter adapter;
 
     private ScrollEndless endless;
-    private int page =1;
+    private int page = 1;
 
 
     @Override
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         edTotalPages = (EditText) findViewById(R.id.edPages);
         btOk = (Button) findViewById(R.id.btOk);
         btOk.setOnClickListener(this);
@@ -67,7 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onLoadAllFinish() {
                 //Is the last page. Load all itens
-                Toast.makeText(MainActivity.this, "Load all " + endless.getTotalPage(), Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(layout, "Load all", Snackbar.LENGTH_SHORT);
+                snackbar.show();
             }
         });
 
