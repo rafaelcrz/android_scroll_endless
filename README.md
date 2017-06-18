@@ -57,7 +57,7 @@ yourRequestCall();
 * Get the ScrollEndless listener. 
 
 ```java
-endless.addScrollEndless(new EndlessListener() {
+endless.addScrollEndless(new ScrollEndless.EndlessScrollListener() {
     @Override
     public void onLoadMore() {
         //Get the next page when is available
