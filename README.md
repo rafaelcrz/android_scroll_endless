@@ -6,7 +6,7 @@ This project is a EndlessScroll for using on RecyclerView
 
 ## Preview
 
-### The ProgressDialog is optional
+#### The ProgressDialog is optional
 
 ![Sample](https://media.giphy.com/media/W3JPu0dzlSTDO/giphy.gif)
 
@@ -33,6 +33,7 @@ dependencies {
 ```
 
 ## Usage
+### Endeles Scroll
 
 * Configure the RecyclerView with the Adapter and LayoutManager before use the ScrollEndeless
 ```java
@@ -105,3 +106,24 @@ Increment the page
 ```java
 page = endless.getPage() + 1;
 ```
+
+### ScrollManagerDirection
+```java
+        //Recyclerview down/up
+        endless.addScrollManagerDirection(new ScrollEndless.ScrollManagerDirectionListener() {
+            @Override
+            public void onScrollUp() {
+                //do something
+                floatingActionButton.hide();
+                floatingActionButton.animate();
+            }
+
+            @Override
+            public void onScrollDown() {
+                //do something
+                floatingActionButton.show();
+                floatingActionButton.animate();
+            }
+        });
+```
+
