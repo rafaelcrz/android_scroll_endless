@@ -6,9 +6,9 @@ This project is a EndlessScroll for using on RecyclerView
 
 ## Preview
 
-*The ProgressDialog is optional
+### The ProgressDialog is optional
 
-![Sample](screen_gif.gif)
+![Sample](https://media.giphy.com/media/W3JPu0dzlSTDO/giphy.gif)
 
 This project has a sample
 
