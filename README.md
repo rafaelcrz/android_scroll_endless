@@ -110,6 +110,9 @@ page = endless.getPage() + 1;
 ```
 
 ### ScrollManagerDirection
+
+### Use it for manage the Scroll direction and do something when scroll up / scroll down. For example, show or hide a FloatButton
+
 ```java
         //Recyclerview down/up
         endless.addScrollManagerDirection(new ScrollEndless.ScrollManagerDirectionListener() {
