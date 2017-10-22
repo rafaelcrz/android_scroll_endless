@@ -1,5 +1,7 @@
 # Android Endless Scroll
 
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Scroll%20Endless-green.svg?style=flat )]( https://android-arsenal.com/details/1/6358 )
+
 This project is a EndlessScroll for using on RecyclerView
 
 
