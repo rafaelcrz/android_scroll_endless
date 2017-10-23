@@ -14,6 +14,8 @@ This project is a EndlessScroll for using on RecyclerView
 
 This project has a sample
 
+[Activity sample using Endless](https://github.com/rafaelcrz/android_scroll_endless/blob/master/app/src/main/java/com/github/rafaelcrz/android_endless_scroll_app/activities/MainActivity.java)
+
 ## Integrating into your project
 
 This project is available in [JitPack.io](https://jitpack.io/) repository.
